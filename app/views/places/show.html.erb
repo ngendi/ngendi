@@ -1,0 +1,43 @@
+<p id="notice">
+	<%= notice %>
+</p>
+<span class="graytitle"><%= @place.title %></span>
+<ul class="pageitem">
+	<li class="textbox">
+		<div id="map_canvas" style="height: 300px;"></div>
+	</li>
+</ul>
+<ul class="pageitem">
+	<li class="textbox">
+		<div id="directionsPanel"></div>
+	</li>
+</ul>
+<ul id="info" class="pageitem">
+	<li class="textbox">
+		<p>
+			<%= @place.desc %>
+		</p>
+	</li>
+</ul>
+<ul class="pageitem">
+	<li class="textbox">
+		Alamat : <%= @place.address %>
+	</li>
+	<li class="textbox">
+		Telpon : <%= @place.phone %>
+	</li>
+	<li class="textbox">
+		<center>
+			<%= image_tag @place.photo.url(:small) %>
+		</center>
+	</li>
+</ul>
+<center>
+	<a href="<%= root_path %>">
+	<input type="button" value="Home" />
+	</a>
+	<% if logged_in? %> <a href="<%= places_path %>">
+	<input type="button" value="Dashboard" />
+	</a>
+	<% end  %>
+</center>

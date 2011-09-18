@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<title>Ngendi</title>
+		<%= stylesheet_link_tag("style-admin") %>
+		<%= javascript_include_tag :all %>
+		<%= csrf_meta_tag %> <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAQiyrUtXN3XgjBRs0Im0c5RTU4okvaG2eWWHakbncH7s9-PHQlxSRE2LHPblyFYKNecQlbLPMttP7oQ" type="text/javascript"></script>
+	</head>
+	<body onload="initialize()" onunload="GUnload()">
+		<!-- Header -->
+		<div id="header">
+			<div class="shell">
+				<!-- Logo + Top Nav -->
+				<div id="top">
+					<h1><%= link_to 'Dashboard - Ngendi', places_path %></h1>
+					<div id="top-navigation">
+						<%= current_user.email %> <span> | </span>
+						<%= link_to "View Ngendi", root_path %> <span> | </span>
+						<%= link_to "Edit Password", edit_user_path(current_user) %> <span> | </span>
+						<%= link_to "Logout", logout_path %>
+					</div>
+				</div>
+				<!-- End Logo + Top Nav -->
+				<!-- Main Nav -->
+				<div id="navigation">
+					<ul>
+						<li>
+							<%= link_to content_tag(:span, "Places"), places_path %>
+						</li>
+						<li>
+							<%= link_to content_tag(:span, "Categories"), categories_path %>
+						</li>
+						<% if admin? %>
+						<li>
+							<%= link_to content_tag(:span, "Contributors"), users_path %>
+						</li>
+						<% end %>
+					</ul>
+				</div>
+				<!-- End Main Nav -->
+			</div>
+		</div>
+		<!-- End Header -->
+		<div class="msg msg-ok">
+			<%= content_tag :p, notice, :class => 'notice' if notice.present? %>
+			<%= content_tag :p, alert, :class => 'alert' if alert.present? %>
+		</div>
+		<%= yield %> <!-- Footer -->
+		<div id="footer">
+			<div class="shell">
+				<span class="left">&copy; 2011 - Ngendi</span>
+				<span class="right"> Design by <a href="http://chocotemplates.com" target="_blank" title="The Sweetest CSS Templates WorldWide">Chocotemplates.com</a> </span>
+			</div>
+		</div>
+		<!-- End Footer -->
+		</div>
+	</body>
+</html>

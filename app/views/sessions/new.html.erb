@@ -1,0 +1,43 @@
+<!-- Container -->
+<div id="container">
+	<div class="shell">
+		<!-- Main -->
+		<div id="main">
+			<div class="cl">
+				&nbsp;
+			</div>
+			<!-- Content -->
+			<div id="content">
+				<!-- Box -->
+				<div class="box">
+					<!-- Box Head -->
+					<div class="box-head">
+						<h2>Login</h2>
+					</div>
+					<!-- End Box Head -->
+					<div class="form">
+						<%= form_tag session_path do %>
+						<p>
+							<%= label_tag :email %>
+							<%= text_field_tag :email, '',:class => 'field size4' %>
+						</p>
+						<p>
+							<%= label_tag :password %>
+							<%= password_field_tag :password, '', :class => 'field size4' %>
+						</p>
+						<div class="actions">
+							<%= submit_tag 'Login' %>
+						</div>
+						<% end %>
+					</div>
+				</div>
+			</div>
+			<!-- End Content -->
+			<div class="cl">
+				&nbsp;
+			</div>
+		</div>
+		<!-- Main -->
+	</div>
+</div>
+<!-- End Container -->

@@ -1,0 +1,13 @@
+body { background-color: #eee; color: #333; width: 100%; margin: 0; padding: 0; height: 100%; font-size: 11px;}
+
+#wrapper { height: 100%; }
+#header { text-align: center; }
+#content { }
+#footer { position: relative; bottom: 0; margin-top: 20px; text-align: center !important; clear: both; }
+
+.search-form { text-align: center; margin-top: 10%; margin-bottom: 10%;}
+.search-form input { height: 30px; }
+
+
+.places-list li { margin: 5px 0 0 0 ; border-bottom: 1px #ccc solid; width: 100%;}
+.paginate { margin: 10px 0 10px 0; text-align: center; }

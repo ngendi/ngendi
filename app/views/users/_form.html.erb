@@ -1,0 +1,32 @@
+<%= form_for @user do |f| %>
+<% if @user.errors.any? %>
+<div class="msg msg-error">
+	<strong> <%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</strong>
+	<ul>
+		<% @user.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<div class="form">
+	<p>
+		<%= f.label :email %>
+		<%= f.text_field :email, :class => 'field size4' %>
+	</p>
+	<p>
+		<%= f.label :password %>
+		<%= f.password_field :password, :class => 'field size4' %>
+	</p>
+	<p>
+		<%= f.label "Level" %>
+		<%= f.select (:level, {'Administrator' => '0','Contributor' => '1'}) %>
+	</p>
+</div>
+<div class="buttons">
+	<%= link_to 'Back', users_path %>
+	<%= f.submit %>
+</div>
+<% end %> 

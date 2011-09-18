@@ -1,0 +1,25 @@
+<%= form_for(@category) do |f| %>
+  <% if @category.errors.any? %>
+    <div class="msg msg-error">
+      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+      <% @category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<!-- Form -->
+    <div class="form">
+          <p>
+            <%= f.label :name %><br />
+            <%= f.text_field :name, :class => 'field size4' %>
+          </p>
+          <div class="buttons">
+                    <%= link_to 'Back', categories_path %> &nbsp;
+                    <%= f.submit  %>
+            </div>
+    </div>
+<!-- End Form Buttons -->
+<% end %>

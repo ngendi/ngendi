@@ -1,0 +1,11 @@
+digraph models_diagram {
+	graph[overlap=false, splines=true]
+	"Category" [shape=Mrecord, label="{Category|name :string\lcreated_at :datetime\lupdated_at :datetime\l}"]
+	"Place" [shape=Mrecord, label="{Place|title :string\ldesc :text\laddress :text\lphone :string\llongitude :float\llatitude :float\lrating :integer\lpublished_at :datetime\lcreated_at :datetime\lupdated_at :datetime\lphoto_file_name :string\lphoto_content_type :string\lphoto_file_size :integer\lphoto_updated_at :datetime\l}"]
+	"Profile" [shape=Mrecord, label="{Profile|name :string\lbirthday :string\lbio :text\lcreated_at :datetime\lupdated_at :datetime\l}"]
+	"User" [shape=Mrecord, label="{User|email :string\lhashed_password :string\lcreated_at :datetime\lupdated_at :datetime\l}"]
+	"Place" -> "Tagging" [arrowtail=crow, arrowhead=dot, dir=both]
+	"Place" -> "Tag" [arrowtail=crow, arrowhead=crow, dir=both]
+	"User" -> "Profile" [arrowtail=odot, arrowhead=dot, dir=both]
+	"User" -> "Place" [arrowtail=crow, arrowhead=dot, dir=both]
+}

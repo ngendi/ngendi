@@ -1,0 +1,34 @@
+[Sat Jul 16 01:00:36.389 2011] [54673] accepting connections
+[Sat Jul 16 01:15:33.270 2011] [54673] rotating indices (seamless=1)
+[Sat Jul 16 01:15:33.276 2011] [54673] rotating index 'place_core': success
+[Sat Jul 16 01:15:33.276 2011] [54673] rotating finished
+[Sat Jul 16 03:30:55.745 2011] [54673] rotating indices (seamless=1)
+[Sat Jul 16 03:30:55.749 2011] [54673] rotating index 'place_core': success
+[Sat Jul 16 03:30:55.749 2011] [54673] rotating finished
+[Sat Jul 16 04:45:56.620 2011] [54673] caught SIGTERM, shutting down
+[Sat Jul 16 04:45:56.621 2011] [54673] shutdown complete
+[Tue Jul 19 17:31:04.878 2011] [  427] accepting connections
+[Wed Jul 20 01:21:45.494 2011] [  427] caught SIGTERM, shutting down
+[Wed Jul 20 01:21:45.495 2011] [  427] shutdown complete
+[Tue Aug  2 04:05:22.914 2011] [ 4151] accepting connections
+[Tue Aug  2 07:31:25.297 2011] [ 4151] caught SIGTERM, shutting down
+[Tue Aug  2 07:31:25.299 2011] [ 4151] shutdown complete
+[Fri Aug  5 14:18:06.253 2011] [ 3129] accepting connections
+[Fri Aug  5 18:33:31.571 2011] [ 3129] caught SIGTERM, shutting down
+[Fri Aug  5 18:33:31.572 2011] [ 3129] shutdown complete
+[Wed Aug 10 18:45:16.903 2011] [  870] accepting connections
+[Thu Aug 11 02:51:41.736 2011] [  870] caught SIGTERM, shutting down
+[Thu Aug 11 02:51:41.737 2011] [  870] shutdown complete
+[Fri Aug 12 19:18:54.672 2011] [ 1539] accepting connections
+[Sat Aug 13 00:22:56.674 2011] [ 1539] caught SIGTERM, shutting down
+[Sat Aug 13 00:22:56.675 2011] [ 1539] shutdown complete
+[Wed Sep 14 09:57:42.433 2011] [ 3302] accepting connections
+[Wed Sep 14 23:29:36.878 2011] [ 3302] rotating indices (seamless=1)
+[Wed Sep 14 23:29:36.913 2011] [ 3302] rotating index 'place_core': success
+[Wed Sep 14 23:29:36.913 2011] [ 3302] rotating finished
+[Wed Sep 14 23:41:22.662 2011] [ 3302] rotating indices (seamless=1)
+[Wed Sep 14 23:41:22.666 2011] [ 3302] rotating index 'place_core': success
+[Wed Sep 14 23:41:22.668 2011] [ 3302] rotating finished
+[Thu Sep 15 01:30:13.726 2011] [ 3302] caught SIGTERM, shutting down
+[Thu Sep 15 01:30:13.727 2011] [ 3302] shutdown complete
+[Sun Sep 18 20:26:59.556 2011] [ 1255] accepting connections

@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^ngendi.com
+RewriteRule (.*) http://www.ngendi.com/$1 [R=301,L]

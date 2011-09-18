@@ -1,0 +1,31 @@
+<div id="content">
+<ul>
+<span class="info">
+<% if !@places.blank? %>
+<div style="padding:3px 0 3px 5px;">
+<small>Page <%= @places.current_page %> of <%= @places.total_pages %> ( <%= @places.total_entries %> results ) </small>
+</div>
+<% @places.each do |place| %>
+</span>
+	<li>
+	  <a class="noeffect" href="<%= place_path(place)  %>"><span class="image" style="background-image: url('<%= place.photo.url(:thumb) %>');"></span>
+	  <span class="comment"><% if place.category %>
+    	  <%= place.category.name %>
+    	  <% end	%></span>
+		<span class="name"><%= place.title %> </span>
+		<span class="starcomment"><%= place.address %></span>
+		<span class="arrow"></span>
+		<span class="price">&plusmn; <%= sprintf("%.2f", place.sphinx_attributes['@geodist']/1000+1) %> km </span>
+		</a>
+	</li>
+<% end %>
+<% else %>
+<div style="text-align:center;margin-top:30px;">
+<strong>Nasi Mana Nasi</strong>
+</div>
+<% end  %>
+</ul>
+</div>
+
+<%= will_paginate @places, :class => 'pagination' %>
+

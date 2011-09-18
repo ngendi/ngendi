@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head>
+  <meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1"> 
+  <title><%= @place.title %> - Ngendi</title>
+  <%= stylesheet_link_tag("style") %>
+  <%= javascript_include_tag "google_maps", :cache => true %>
+  <%= javascript_include_tag "functions", :cache => true %>
+  <%= csrf_meta_tag %>
+  <%= javascript_include_tag("http://maps.google.co.id/maps/api/js?v=3&key=ABQIAAAAQiyrUtXN3XgjBRs0Im0c5RTU4okvaG2eWWHakbncH7s9-PHQlxSRE2LHPblyFYKNecQlbLPMttP7oQ&region=ID&language=ID&sensor=false") %>  
+   
+<% javascript_tag do %>
+  var directionDisplay;
+  var directionsService = new google.maps.DirectionsService();
+  var map;
+ 
+  function initialize() {
+    directionsDisplay = new google.maps.DirectionsRenderer();
+    var jogja = new google.maps.LatLng(<%= session[:lat] %>, <%= session[:lng] %>);
+    var myOptions = {
+      zoom:14,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      center: jogja
+    }
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    directionsDisplay.setMap(map);
+    directionsDisplay.setPanel(document.getElementById("directionsPanel"));
+  }
+  
+  function calcRoute() {
+    var start = "<%= session[:lat] %>, <%= session[:lng] %>";
+    var end = "<%= @place.latitude %>, <%= @place.longitude %>";
+    var request = {
+        origin:start, 
+        destination:end,
+        travelMode: google.maps.DirectionsTravelMode.DRIVING
+    };
+    directionsService.route(request, function(response, status) {
+      if (status == google.maps.DirectionsStatus.OK) {
+        directionsDisplay.setDirections(response);
+      }
+    });
+  }
+<% end  %> 
+</head>
+<body onload="initialize();calcRoute();" onunload="GUnload()"> 
+<div id="topbar" class="transparent">
+	<div id="title">Ngendi</div>
+	<div id="leftnav"> 
+		<a href="<%= root_path %>"><img alt="home" src="../images/home.png" /></a></div>
+</div>
+
+<div class="searchbox">
+<%= form_tag result_path, :method => :get do %>
+	<fieldset>
+	<%= text_field_tag :search, nil, :placeholder => 'search' %> 
+	<%= hidden_field_tag :lat, session[:lat] %>
+	<%= hidden_field_tag :lng, session[:lng] %>
+	<%= submit_tag "Cari", :name => nil, :type => :hidden %>
+	</fieldset>
+<% end %>
+</div>
+
+<div id="tributton"> 
+	<div class="links"> 
+		<a href="#map_canvas">Map</a><a href="#directionsPanel">Direction</a><a href="#info">Info</a></div> 
+</div> 
+
+<div id="content">
+<%= content_tag :p, notice, :class => 'notice' if notice.present? %>
+<%= content_tag :p, alert, :class => 'alert' if alert.present? %>
+<%= yield %>
+</div>
+
+<div id="footer">
+<p><strong>Development of Ngendi.com</strong></p>
+</div>
+</body>
+</html>

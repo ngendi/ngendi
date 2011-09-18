@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<title>Ngendi</title>
+		<%= stylesheet_link_tag("style-admin") %>
+	</head>
+	<body>
+		<!-- Header -->
+		<div id="header">
+			<div class="shell">
+				<!-- Logo + Top Nav -->
+				<div id="top">
+					<h1><%= link_to 'Ngendi', root_path %></h1>
+				</div>
+				<!-- End Logo + Top Nav -->
+			</div>
+		</div>
+		<!-- End Header -->
+		<div class="msg msg-ok">
+			<%= content_tag :p, notice, :class => 'notice' if notice.present? %>
+			<%= content_tag :p, alert, :class => 'alert' if alert.present? %>
+		</div>
+		<%= yield %> <!-- Footer -->
+		<div id="footer">
+			<div class="shell">
+				<span class="left">&copy; 2010 - Ngendi</span>
+				<span class="right"> Design by <a href="http://chocotemplates.com" target="_blank" title="The Sweetest CSS Templates WorldWide">Chocotemplates.com</a> </span>
+			</div>
+		</div>
+		<!-- End Footer -->
+		</div>
+	</body>
+</html>

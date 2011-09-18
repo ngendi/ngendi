@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta id="viewport" name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+		<title>Ngendi <%= params[:search] %></title>
+		<%= stylesheet_link_tag("style") %>
+		<%= javascript_include_tag "functions", :cache => true %>
+		<%= csrf_meta_tag %> <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAQiyrUtXN3XgjBRs0Im0c5RTU4okvaG2eWWHakbncH7s9-PHQlxSRE2LHPblyFYKNecQlbLPMttP7oQ" type="text/javascript"></script>
+	</head>
+	<body onload="initialize()" onunload="GUnload()" class="applist">
+		<div id="wrapper">
+			<div id="topbar" class="transparent">
+				<div id="title">
+					Ngendi
+				</div>
+				<div id="leftnav">
+					<%= link_to "Back", root_path, :id => 'backButton' %>
+				</div>
+			</div>
+			<div class="searchbox">
+				<%= form_tag result_path, :method => :get do %>
+				<fieldset>
+					<%= text_field_tag :search, params[:search], :placeholder => 'search' %>
+					<%= hidden_field_tag :lat, params[:lat] %>
+					<%= hidden_field_tag :lng, params[:lng] %>
+					<%= submit_tag "Cari", :name => nil, :type => :hidden %>
+				</fieldset>
+				<% end %>
+			</div>
+			<%= content_tag :p, notice, :class => 'notice' if notice.present? %>
+			<%= content_tag :p, alert, :class => 'alert' if alert.present? %>
+			<%= yield %>
+			<div id="footer">
+				<p>
+					Development of Ngendi.com
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<%= form_for @place, :html => { :multipart => true } do |f| %>
+<% if @place.errors.any? %>
+<div class="msg msg-error">
+	<strong><%= pluralize(@place.errors.count, "error") %> prohibited this place from being saved:</strong>
+	<ul>
+		<% @place.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %> <!-- Form -->
+<div class="form">
+	<p>
+		<%= f.label "Place Name" %>
+		<%= f.text_field :title, :class => 'field size1' %>
+	</p>
+	<p>
+		<%= f.label "Category" %>
+		<%= f.collection_select :category_id, Category.find(:all), :id, :name %>
+	</p>
+	<p>
+		<%= f.label "Tags" %>
+		<%= f.text_field :tag_list, :size => 200, :class => 'field size1' %>
+	</p>
+	<p>
+		<%= f.label "Description" %>
+		<%= f.text_area :desc, :class => 'field size1' %>
+	</p>
+	<p>
+		<%= f.label "Address" %>
+		<%= f.text_field :address, :class => 'field size1' %>
+	</p>
+	<p>
+		<%= f.label "Phone" %>
+		<%= f.text_field :phone, :class => 'field size4' %>
+	</p>
+	<p>
+		<%= f.label "Map" %> <div id="map_canvas" style="width: 500px; height: 300px;margin-left:175px;"></div>
+	</p>
+	<p>
+		<%= f.label "Coordinate" %>
+		<%= f.text_field :latitude, :class => 'field size4' %> <%= f.text_field :longitude, :class => 'field size4' %>
+	</p>
+	<p>
+		<%= f.label "Photo" %>
+		<%= f.file_field :photo %>
+		<%= image_tag @place.photo.url(:thumb) %>
+	</p>
+</div>
+<!-- End Form -->
+<!-- Form Buttons -->
+<div class="buttons">
+	<%= link_to 'Back', places_path %> &nbsp;
+	<%= f.submit  %>
+</div>
+<!-- End Form Buttons -->
+<% end %>

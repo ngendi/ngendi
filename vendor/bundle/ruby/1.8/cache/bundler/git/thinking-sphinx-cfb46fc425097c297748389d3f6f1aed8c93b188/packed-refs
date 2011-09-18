@@ -1,0 +1,6 @@
+# pack-refs with: peeled 
+21452ea18397175e81e289fc71a933272912035d refs/tags/v0.9.5
+^da49610c287c20cec0277f0caba80890fb2ba4c6
+ea7673a0188f6c8aab90ebaa857023e03ff2fc8a refs/heads/rails3
+4ca4e28bcb0f7796de773770f920acac3c8b928e refs/heads/master
+a136b31365a7a0bfbd7b298974deab4d28578d31 refs/heads/dm
